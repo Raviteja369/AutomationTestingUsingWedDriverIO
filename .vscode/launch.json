@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Web Driver IO Test",
+            "args": ["wdio.conf.js"],  // "--spec", "${file}"
+            "cwd": "${workspaceFolder}",
+            "autoAttachChildProcesses": true,
+            "program": "${workspaceRoot}/node_modules/@wdio/cli/bin/wdio.js",
+            "console": "integratedTerminal",
+            "skipFiles": [
+                "${workspaceFolder}/node_modules/**/*.js",
+                "${workspaceFolder}/lib/**/*.js",
+                "<node_internals>/**/*.js"
+            ]
+        }
+    ]
+}
