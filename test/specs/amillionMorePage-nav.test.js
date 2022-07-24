@@ -1,5 +1,8 @@
 const Page = require('../../pageobjects/a-million-more-page');
 const expectchai = require('chai').expect
+const fs = require('fs')
+let navMenuList = JSON.parse(fs.readFileSync('test/testData/navigationMenuTest.json'))
+let hybridsCarsList = JSON.parse(fs.readFileSync('test/testData/hybridsCarsTest.json'))
 
 describe("A Million More Page Test", () => {
 	/**
@@ -19,30 +22,22 @@ describe("A Million More Page Test", () => {
 		await expect(browser).toHaveTitle("A million more | Volvo Cars - International")
 	})
 
-	it('Checking Navbar Show Button', async () => {
+	it('Checking Navbar Menu Show Button', async () => {
 		await Page.btnNav.scrollIntoView()
 		await Page.btnNav.click()
 		expectchai(await Page.navList.isDisplayedInViewport()).to.be.true
 	})
 
-	it('Checking Navbar Menu and Menu text list of Items count', async () => {
+	it('Checking Navbar Menu text and its Items count', async () => {
 		// Menu items list
 		const navMenuList = await Page.navMainMenuList
 		expectchai(await navMenuList.length).to.equal(5)
 
 		// Menu items text list
 		await Page.verifyNavigationMenuList()
-		
-		// const navMainMenuTextList = await Page.navMainMenuTextList
-		// let navigationItems = await Page.getNavigationItems();
-		// for (var i = 0; i < await navMainMenuTextList.length; i++) {
-		// 	expectchai(await navMainMenuTextList[i].getText()).to.equal(navigationItems[i].name)
-		// }
-
-		// expectchai(await navMainMenuTextList.length).to.equal(navigationItems.length)
 	})
 
-	it('Checking Navbar Main Menu and All Sub Menu List of Items count', async () => {
+	it('Checking Navbar Main Menu and Sub Menu List of Items count', async () => {
 		// Step -1 Checking Navbar Main Menu list items count
 		const navMainMenuList = await Page.navMainMenuList
 		let navigationItems = await Page.getNavigationItems();
@@ -84,41 +79,31 @@ describe("A Million More Page Test", () => {
 		expectchai(await Page.navList.isDisplayedInViewport()).to.be.false
 	})
 
-	it('Checking Navbar Main Menu and All Sub Menu List of Items text and count', async () => {
-		// Step -1 Checking Navbar Main Menu list items count
-		await Page.btnNav.click()
-		const navMainMenuList = await Page.navMainMenuList
-		let navigationItems = await Page.getNavigationItems();
-		expectchai(await navMainMenuList.length).to.equal(navigationItems.length)
-
-		// Need to improve the process it close very faster
-		for (var i = 0; i < await navMainMenuList.length; i++) {
-			expectchai(await navMainMenuList[i].getText()).to.equal(await navigationItems[i].name)
-			await navMainMenuList[i].click()
+	navMenuList.forEach(({ id, name, count, subMenuItems }) => {
+		it('Checking Navbar Main Menu and Sub Menu List of Items text and count - ' + name, async () => {
+			// Step -1 Checking Navbar Main Menu list items count
+			await Page.btnNav.click()
+			// Get Navigation array
+			const navMainMenuList = await Page.navMainMenuList
+			// Compare menu item text before click
+			expectchai(await navMainMenuList[id].getText()).to.equal(await name)
+			await navMainMenuList[id].click()
+			// Get Sub menu array list.
 			const navSubMenuBuyList = await Page.navSubMenuList
-			await browser.pause(2000)
-			// Step-2 Checking Navbar Sub Menu Buy list items text and count
-			for (var j = 0; j < await navSubMenuBuyList.length; j++) {
-				expectchai(await navSubMenuBuyList[j].getText()).to.equal(await navigationItems[i].subMenuItems[j])
-			}
-			expectchai(await navSubMenuBuyList.length).to.equal(await navigationItems[i].count)
-			await Page.btnNavBack.click()
-		}
 
-		// for (var i = 0; i < await navMainMenuList.length; i++) {
-		// 	expectchai(await navMainMenuList[i].getText()).to.equal(navigationItems[i].name)
-		// 	await navMainMenuList[i].click()
-		// 	const navSubMenuBuyList = await Page.navSubMenuList
-		// 	// Step-2 Checking Navbar Sub Menu Buy list items text and count			
-		// 	for (var j = 0; j < await navSubMenuBuyList.length; j++) {
-		// 		expectchai(await navSubMenuBuyList[j].getText()).to.equal(navigationItems[i].subMenuItems[j])
-		// 	}
-		// 	expectchai(await navSubMenuBuyList.length).to.equal(navigationItems[i].count)
-		// 	await Page.btnNavBack.click()
-		// }
-	})
+			// Step-2 Checking Navbar Sub Menu Buy list items with text comparison
+			for (var j = 0; j < await navSubMenuBuyList.length; j++) {
+				expectchai(await navSubMenuBuyList[j].getText()).to.equal(await subMenuItems[j])
+			}
+			// Check submenu count
+			expectchai(await navSubMenuBuyList.length).to.equal(await count)
+			await Page.btnNavBack.click()
+			await Page.btnNavClose.click()
+		})
+	});
 
 	it('Checking Navbar Close Button', async () => {
+		await Page.btnNav.click()
 		await Page.btnNavClose.click()
 		await browser.pause(300)
 		expectchai(await Page.navList.isDisplayedInViewport()).to.be.false

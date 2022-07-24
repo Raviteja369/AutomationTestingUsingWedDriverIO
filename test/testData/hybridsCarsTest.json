@@ -1,0 +1,109 @@
+[
+    {
+        "id": 1,
+        "name": "Plug-in hybrids",
+        "categoryTitle": [
+            "SUVS",
+            "ESTATES",
+            "SEDANS"
+        ],
+        "carDetailsCount": 7,
+        "carDetails": [
+            {
+                "carName": "XC90 Recharge",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/xc90-hybrid.png?h=192&iar=0&w=517"
+            },
+            {
+                "carName": "XC60 Recharge",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/xc60-hybrid.png?h=192&iar=0&w=493"
+            },
+            {
+                "carName": "XC40 Recharge",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/xc40-hybrid.png?h=192&iar=0&w=466"
+            },
+            {
+                "carName": "V90 Recharge",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/v90-hybrid.png?h=192&iar=0&w=516"
+            },
+            {
+                "carName": "V60 Recharge",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/v60-hybrid.png?h=192&iar=0&w=499"
+            },
+            {
+                "carName": "S90 Recharge",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/s90-hybrid.png?h=192&iar=0&w=522"
+            },
+            {
+                "carName": "S60 Recharge",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/s60-hybrid.png?h=192&iar=0&w=491"
+            }
+        ]
+    },
+    {
+        "id": 0,
+        "name": "Pure electric",
+        "categoryTitle": [
+            "SUVS",
+            "CROSSOVER"
+        ],
+        "carDetailsCount": 2,
+        "carDetails": [
+            {
+                "carName": "XC40 Recharge",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/xc40-electric.png?h=192&iar=0&w=466"
+            },
+            {
+                "carName": "C40 Recharge",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/c40-electric.png?h=190&iar=0&w=464"
+            }
+        ]
+    },    
+    {
+        "id": 2,
+        "name": "Mild hybrids | Micro hybrids",
+        "categoryTitle": [
+            "SUVS",
+            "ESTATES",
+            "SEDANS"
+        ],
+        "carDetailsCount": 9,
+        "carDetails": [
+            {
+                "carName": "XC90",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/xc90.png?h=192&iar=0&w=517"
+            },
+            {
+                "carName": "XC60",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/xc60.png?iar=0"
+            },
+            {
+                "carName": "XC40",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/xc40.png?h=192&iar=0&w=466"
+            },
+            {
+                "carName": "V90",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/v90.png?h=192&iar=0&w=516"
+            },
+            {
+                "carName": "V60",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/v60.png?h=192&iar=0&w=499"
+            },
+            {
+                "carName": "V90 Cross Country",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/v90-cross-country.png?iar=0"
+            },
+            {
+                "carName": "V60 Cross Country",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/v60-cross-country.png?h=192&iar=0&w=499"
+            },
+            {
+                "carName": "S90",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/s90.png?h=192&iar=0&w=517"
+            },
+            {
+                "carName": "S60",
+                "imagePath": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/navigation/my23/s60.png?h=192&iar=0&w=491"
+            }
+        ]
+    }
+]

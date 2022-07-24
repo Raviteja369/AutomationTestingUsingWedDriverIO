@@ -17,6 +17,41 @@ class AMillionMorePage {
 	get navMainMenuList() {
 		return $$("div [data-autoid='nav:sideNavLinksMenu'] div[role='listitem']")
 	}
+	
+	get btnNavOurCars() {
+		return $("button[data-di-id='#nav:topNavCarMenu']")
+	}
+
+	get tabHybridsCars() {
+		return $("#site-nav-cars-menu-section-panel-1")
+	}
+
+	get hybridsListItemCars() {
+		return $$("#site-nav-cars-menu-section-panel-1 div[role='listitem']")
+	}
+
+	get hybridsCarName() {
+		return $("em[data-autoid='nav:carName']")
+	}
+
+	get hybridsCarImage() {
+		return $("img[data-autoid='nav:carImage']")
+	}
+
+
+	get hybridsCarsCategoryTitle() {
+		return $$("#site-nav-cars-menu-section-panel-1 div[role='list'] a[data-autoid='nav:carCategoryTitle']")
+	}
+
+	get btnNavCarsMenuCloseIcon() {
+		return $("button[data-autoid='nav:carMenuCloseIcon']")
+	}
+	
+	
+	get navCarMenuDesktop() {
+		return $("div[data-autoid='nav:carMenuDesktop']")
+	}
+	
 
 	get navMainMenuTextList() {
 		return $$("div [data-autoid='nav:sideNavLinksMenu'] div[role='listitem'] em")
