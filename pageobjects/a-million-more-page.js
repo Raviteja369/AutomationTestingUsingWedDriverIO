@@ -1,4 +1,6 @@
-const NavigationItem = require('../pageobjects/navigationItems');
+const NavigationItem = require('./navigationItems')
+const compareImage = require('./compareImages');
+const expectchai = require('chai').expect
 
 class AMillionMorePage {
 	/**
@@ -56,7 +58,15 @@ class AMillionMorePage {
 		return $$("div[data-autoid='videoTestimonials:container'] p[class='a ac ae aj ao as bd bf bj bm bp gj gk gl gm gn go gp gq js']")
 	}
 
-	open() {
+	get mainVideo(){
+        return $('#Video-1')
+    }
+
+    get btnPauseVideo(){
+        return $("div[class='a bz cj ck cl cm'] button")  // #Video-1 button button
+    }
+	
+	async open() {
 		return browser.url(browser.options.baseUrl)  // browser.options.baseUrl
 		// https://www.volvocars.com/intl/v/car-safety/a-million-more
 	}
@@ -69,6 +79,22 @@ class AMillionMorePage {
 		let moreNavigationItem = new NavigationItem('More', 4, ['Contact Us', 'Media/Press', 'Investor Relations', 'Military Sales'])
 		return [buyNavigationItem, ownNavigationItem, aboutVolvoNavigationItem, exploreNavigationItem, moreNavigationItem]
 	}
+
+	async  verifyNavigationMenuList() {
+		let navigationItems = await this.getNavigationItems();
+		for (var i = 0; i < await this.navMainMenuTextList.length; i++) {
+			expectchai(await this.navMainMenuTextList[i].getText()).to.equal(navigationItems[i].name)
+		}
+
+		expectchai(await this.navMainMenuTextList.length).to.equal(navigationItems.length)
+	}
+
+	async isPlaying() {
+        let screen1 = await browser.saveScreenshot('.png')
+        await browser.pause(2000)
+        let screen2 = await browser.saveScreenshot('.png')
+        return await compareImage.compareImages(screen1, screen2, 0.1)
+      }
 }
 
 module.exports = new AMillionMorePage();
