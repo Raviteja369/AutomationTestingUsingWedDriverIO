@@ -2,7 +2,7 @@ const Page = require('../../pageobjects/a-million-more-page');
 const PageModelIntro = require('../../pageobjects/a-million-more-modelIntro-page');
 const expectchai = require('chai').expect
 
-describe("A Million More Page Test-Model Intro", () => {
+describe("A Million More Page -Model Intro Test", () => {
 	/**
 	 * Open The Page: https://www.volvocars.com/intl/v/car-safety/a-million-more
 	 * Accept Cookies when initially page opens

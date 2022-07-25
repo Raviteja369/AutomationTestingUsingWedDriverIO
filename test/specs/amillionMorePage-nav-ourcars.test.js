@@ -3,7 +3,7 @@ const expectchai = require('chai').expect
 const fs = require('fs')
 let hybridsCarsList = JSON.parse(fs.readFileSync('test/testData/hybridsCarsTest.json'))
 
-describe("A Million More Page Test", () => {
+describe("A Million More Pag - Our Cars Button Tests", () => {
 	/**
 	 * Open The Page: https://www.volvocars.com/intl/v/car-safety/a-million-more
 	 * Accept Cookies when initially page opens

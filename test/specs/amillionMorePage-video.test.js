@@ -1,7 +1,7 @@
 const Page = require('../../pageobjects/a-million-more-page');
 const expectchai = require('chai').expect
 
-describe("A Million More Page Test", () => {
+describe("A Million More Page - Videos Test", () => {
     /**
      * Open The Page: https://www.volvocars.com/intl/v/car-safety/a-million-more
      * Accept Cookies when initially page opens
