@@ -15,17 +15,17 @@ describe("A Million More Page Test", () => {
         await browser.pause(800)
     })
 
-    it('Checking page title', async () => {
-		await expect(browser).toHaveTitle("A million more | Volvo Cars - International")
-	})
+    it('Verify page title', async () => {
+        await expect(browser).toHaveTitle("A million more | Volvo Cars - International")
+    })
 
-    it('Checking the Main Video is playing or not by comparing the images', async () => {
+    it('Verify the main video is playing or not by comparing the images', async () => {
         await Page.mainVideo.scrollIntoView()
         const isPlaying = await Page.isPlaying()
         expectchai(isPlaying).to.be.true
     })
 
-    it('Checking the Main Video Pause and Play buttons are working', async () => {
+    it('Verify the main video pause and play buttons are working', async () => {
         await Page.mainVideo.scrollIntoView()
         await Page.btnPauseVideo.click()
         let isVideoPaused = await Page.isPlaying()
@@ -39,32 +39,17 @@ describe("A Million More Page Test", () => {
     })
 
 
-    it('Checking testimonial Videos, Title, Description count', async () => {
-        // Step- 1 Checking testimonial Videos count
+    it('Verify testimonial videos, title, description count', async () => {
+        // Step- 1 Verify testimonial Videos count
         await Page.testimonialHeading.scrollIntoView()
         const videoTestimonialList = await Page.childVideosList
         expectchai(await videoTestimonialList.length).to.equal(4)
 
-        // Step- 2 Checking testimonial Title count and either exists or not
+        // Step- 2 Verify testimonial Title count and either exists or not
         const videoTestimonialTitleList = await Page.childVideoTestimonialsTitle
         expectchai(await videoTestimonialTitleList.length).to.equal(4)
 
-        // Step- 3 Checking testimonial Description count and either exists or not
-        const videoTestimonialDescriptionList = await Page.childVideoTestimonialsDescription
-        expectchai(await videoTestimonialDescriptionList.length).to.equal(4)
-    })
-
-    it('Checking testimonial Videos, Title, Description count', async () => {
-        // Step- 1 Checking testimonial Videos count
-        await Page.testimonialHeading.scrollIntoView()
-        const videoTestimonialList = await Page.childVideosList
-        expectchai(await videoTestimonialList.length).to.equal(4)
-
-        // Step- 2 Checking testimonial Title count and either exists or not
-        const videoTestimonialTitleList = await Page.childVideoTestimonialsTitle
-        expectchai(await videoTestimonialTitleList.length).to.equal(4)
-
-        // Step- 3 Checking testimonial Description count and either exists or not
+        // Step- 3 Verify testimonial Description count and either exists or not
         const videoTestimonialDescriptionList = await Page.childVideoTestimonialsDescription
         expectchai(await videoTestimonialDescriptionList.length).to.equal(4)
     })

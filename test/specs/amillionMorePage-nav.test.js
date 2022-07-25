@@ -22,13 +22,13 @@ describe("A Million More Page Test", () => {
 		await expect(browser).toHaveTitle("A million more | Volvo Cars - International")
 	})
 
-	it('Checking Navbar Menu Show Button', async () => {
+	it('Verify navigation bar for menu button', async () => {
 		await Page.btnNav.scrollIntoView()
 		await Page.btnNav.click()
 		expectchai(await Page.navList.isDisplayedInViewport()).to.be.true
 	})
 
-	it('Checking Navbar Menu text and its Items count', async () => {
+	it('Verify navigation bar for menu text and its items count', async () => {
 		// Menu items list
 		const navMenuList = await Page.navMainMenuList
 		expectchai(await navMenuList.length).to.equal(5)
@@ -37,7 +37,7 @@ describe("A Million More Page Test", () => {
 		await Page.verifyNavigationMenuList()
 	})
 
-	it('Checking Navbar Main Menu and Sub Menu List of Items count', async () => {
+	it('Verify navigation bar for main menu and sub menu list of items count', async () => {
 		// Step -1 Checking Navbar Main Menu list items count
 		const navMainMenuList = await Page.navMainMenuList
 		let navigationItems = await Page.getNavigationItems();
@@ -80,7 +80,7 @@ describe("A Million More Page Test", () => {
 	})
 
 	navMenuList.forEach(({ id, name, count, subMenuItems }) => {
-		it('Checking Navbar Main Menu and Sub Menu List of Items text and count - ' + name, async () => {
+		it('Verify navigation bar for main menu and sub menu list of items text and count - ' + name, async () => {
 			// Step -1 Checking Navbar Main Menu list items count
 			await Page.btnNav.click()
 			// Get Navigation array
@@ -102,7 +102,7 @@ describe("A Million More Page Test", () => {
 		})
 	});
 
-	it('Checking Navbar Close Button', async () => {
+	it('Verify navigation bar for close button', async () => {
 		await Page.btnNav.click()
 		await Page.btnNavClose.click()
 		await browser.pause(300)
