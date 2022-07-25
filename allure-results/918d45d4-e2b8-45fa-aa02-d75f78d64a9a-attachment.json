@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "img[data-autoid='nav:carImage']"
+}

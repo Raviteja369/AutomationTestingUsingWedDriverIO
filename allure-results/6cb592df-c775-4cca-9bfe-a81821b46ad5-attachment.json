@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "div[role='listitem'] a[data-autoid='nav:sideNavLinksMenuItem']"
+}

@@ -28,29 +28,6 @@ describe("A Million More Page - Side Menu Navigation Tests", () => {
 		expectchai(await Page.navList.isDisplayedInViewport()).to.be.true
 	})
 
-	navMenuList.forEach(({ id, name, count, subMenuItems }) => {
-		it('Verify navigation bar for main menu and sub menu list of items text and count - ' + name, async () => {
-			// Step -1 Checking Navbar Main Menu list items count
-			await Page.btnNav.click()
-			// Get Navigation array
-			const navMainMenuList = await Page.navMainMenuList
-			// Compare menu item text before click
-			expectchai(await navMainMenuList[id].getText()).to.equal(await name)
-			await navMainMenuList[id].click()
-			// Get Sub menu array list.
-			const navSubMenuBuyList = await Page.navSubMenuList
-
-			// Step-2 Checking Navbar Sub Menu Buy list items with text comparison
-			for (var j = 0; j < await navSubMenuBuyList.length; j++) {
-				expectchai(await navSubMenuBuyList[j].getText()).to.equal(await subMenuItems[j])
-			}
-			// Check submenu count
-			expectchai(await navSubMenuBuyList.length).to.equal(await count)
-			await Page.btnNavBack.click()
-			await Page.btnNavClose.click()
-		})
-	});
-
 	it('Verify navigation bar for menu text and its items count', async () => {
 		// Menu items list
 		const navMenuList = await Page.navMainMenuList
@@ -60,7 +37,7 @@ describe("A Million More Page - Side Menu Navigation Tests", () => {
 		await Page.verifyNavigationMenuList()
 	})
 
-	xit('Verify navigation bar for main menu and sub menu list of items count- Repeated test', async () => {
+	it('Verify navigation bar for main menu and sub menu list of items count- Repeated test', async () => {
 		// Step -1 Checking Navbar Main Menu list items count
 		const navMainMenuList = await Page.navMainMenuList
 		let navigationItems = await Page.getNavigationItems();
@@ -101,4 +78,27 @@ describe("A Million More Page - Side Menu Navigation Tests", () => {
 		await browser.pause(300)
 		expectchai(await Page.navList.isDisplayedInViewport()).to.be.false
 	})
+
+	navMenuList.forEach(({ id, name, count, subMenuItems }) => {
+		it('Verify navigation bar for main menu and sub menu list of items text and count - ' + name, async () => {
+			// Step -1 Checking Navbar Main Menu list items count
+			await Page.btnNav.click()
+			// Get Navigation array
+			const navMainMenuList = await Page.navMainMenuList
+			// Compare menu item text before click
+			expectchai(await navMainMenuList[id].getText()).to.equal(await name)
+			await navMainMenuList[id].click()
+			// Get Sub menu array list.
+			const navSubMenuBuyList = await Page.navSubMenuList
+
+			// Step-2 Checking Navbar Sub Menu Buy list items with text comparison
+			for (var j = 0; j < await navSubMenuBuyList.length; j++) {
+				expectchai(await navSubMenuBuyList[j].getText()).to.equal(await subMenuItems[j])
+			}
+			// Check submenu count
+			expectchai(await navSubMenuBuyList.length).to.equal(await count)
+			await Page.btnNavBack.click()
+			await Page.btnNavClose.click()
+		})
+	});
 })
