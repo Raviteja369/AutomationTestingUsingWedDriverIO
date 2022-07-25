@@ -1,0 +1,65 @@
+[
+    {
+        "id": 0,
+        "name": "Buy",
+        "count": 6,
+        "subMenuItems": [
+            "Car Configurator",
+            "Fleet sales",
+            "Special Vehicles",
+            "Used cars",
+            "Diplomatic sales",
+            "Child seats"
+        ]
+    },
+    {
+        "id": 1,
+        "name": "Own",
+        "count": 6,
+        "subMenuItems": [
+            "Support",
+            "Service & Repair",
+            "Accessories",
+            "Volvo Recall",
+            "Volvo experience",
+            "Volvo Cars app"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "About Volvo",
+        "count": 9,
+        "subMenuItems": [
+            "Our story",
+            "Sustainability",
+            "Safety",
+            "Our news",
+            "Careers",
+            "Investors",
+            "Suppliers",
+            "Awards",
+            "Experience Volvo Cars"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Explore",
+        "count": 3,
+        "subMenuItems": [
+            "Recharge",
+            "Concepts",
+            "Electric cars"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "More",
+        "count": 4,
+        "subMenuItems": [
+            "Contact Us",
+            "Media/Press",
+            "Investor Relations",
+            "Military Sales"
+        ]
+    }
+]

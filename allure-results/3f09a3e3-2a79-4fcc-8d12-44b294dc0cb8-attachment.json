@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "#site-nav-cars-menu-section-panel-1 div[role='list'] a[data-autoid='nav:carCategoryTitle']"
+}
