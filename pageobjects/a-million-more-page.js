@@ -11,15 +11,15 @@ class AMillionMorePage {
 	}
 
 	get btnNav() {
-		return $('#sitenav-sidenav-toggle')
+		return $("//nav[@class='_SN-ai _SN-aj _SN-ak _SN-al _SN-am _SN-ar _SN-bp _SN-d _SN-hc _SN-hd _SN-he _SN-hf _SN-hg _SN-hh _SN-s _SN-u']/div[@class='_SN-ai _SN-aj _SN-al _SN-ay _SN-bn _SN-bo _SN-bt _SN-u']/div/button[@id='sitenav-sidenav-toggle']") // //button[@id='sitenav-sidenav-toggle']
 	}
 
 	get navMainMenuList() {
-		return $$("div [data-autoid='nav:sideNavLinksMenu'] div[role='listitem']")
+		return $$("div[data-autoid='nav:sideNavLinksMenu'] div[role='listitem']")
 	}
-	
+
 	get btnNavOurCars() {
-		return $("button[data-di-id='#nav:topNavCarMenu']")
+		return  $("//button[@data-di-id='#nav:topNavCarMenu']") // $("button[data-di-id='#nav:topNavCarMenu']")
 	}
 
 	get tabHybridsCars() {
@@ -46,12 +46,10 @@ class AMillionMorePage {
 	get btnNavCarsMenuCloseIcon() {
 		return $("button[data-autoid='nav:carMenuCloseIcon']")
 	}
-	
-	
+
 	get navCarMenuDesktop() {
 		return $("div[data-autoid='nav:carMenuDesktop']")
 	}
-	
 
 	get navMainMenuTextList() {
 		return $$("div [data-autoid='nav:sideNavLinksMenu'] div[role='listitem'] em")
@@ -70,7 +68,7 @@ class AMillionMorePage {
 	}
 
 	get btnNavClose() {
-		return $('button[data-autoid="nav:siteNavCloseIcon"]')
+		return $("div[class='_SN-ai _SN-aj _SN-al _SN-ay _SN-bn _SN-bo _SN-bp _SN-bq _SN-br _SN-u SiteNav_topBarButton'] button[data-autoid='nav:siteNavCloseIcon']") // "button[data-autoid='nav:siteNavCloseIcon']"
 	}
 
 	get navList() {
@@ -93,21 +91,20 @@ class AMillionMorePage {
 		return $$("div[data-autoid='videoTestimonials:container'] p[class='a ac ae aj ao as bd bf bj bm bp gj gk gl gm gn go gp gq js']")
 	}
 
-	get mainVideo(){
-        return $('#Video-1')
-    }
-
-    get btnPauseVideo(){
-        return $("div[class='a bz cj ck cl cm'] button")  // #Video-1 button button
-    }
-	
-	async open() {
-		return browser.url(browser.options.baseUrl)  // browser.options.baseUrl
-		// https://www.volvocars.com/intl/v/car-safety/a-million-more
+	get mainVideo() {
+		return $('#Video-1')
 	}
 
-	async  getNavigationItems() {
-		let buyNavigationItem = new NavigationItem('Buy', 6, ['Car Configurator', 'Fleet sales', 'Special Vehicles', 'Used cars', 'Diplomatic sales', 'Child seats'])       
+	get btnPauseVideo() {
+		return $("div[class='a bz cj ck cl cm'] button")  // #Video-1 button button
+	}
+
+	async open() {
+		return browser.url(browser.options.baseUrl)
+	}
+
+	async getNavigationItems() {
+		let buyNavigationItem = new NavigationItem('Buy', 6, ['Car Configurator', 'Fleet sales', 'Special Vehicles', 'Used cars', 'Diplomatic sales', 'Child seats'])
 		let ownNavigationItem = new NavigationItem('Own', 6, ['Support', 'Service & Repair', 'Accessories', 'Volvo Recall', 'Volvo experience', 'Volvo Cars app'])
 		let aboutVolvoNavigationItem = new NavigationItem('About Volvo', 9, ['Our story', 'Sustainability', 'Safety', 'Our news', 'Careers', 'Investors', 'Suppliers', 'Awards', 'Experience Volvo Cars'])
 		let exploreNavigationItem = new NavigationItem('Explore', 3, ['Recharge', 'Concepts', 'Electric cars'])
@@ -115,7 +112,7 @@ class AMillionMorePage {
 		return [buyNavigationItem, ownNavigationItem, aboutVolvoNavigationItem, exploreNavigationItem, moreNavigationItem]
 	}
 
-	async  verifyNavigationMenuList() {
+	async verifyNavigationMenuList() {
 		let navigationItems = await this.getNavigationItems();
 		for (var i = 0; i < await this.navMainMenuTextList.length; i++) {
 			expectchai(await this.navMainMenuTextList[i].getText()).to.equal(navigationItems[i].name)
@@ -125,11 +122,11 @@ class AMillionMorePage {
 	}
 
 	async isPlaying() {
-        let screen1 = await browser.saveScreenshot('.png')
-        await browser.pause(2000)
-        let screen2 = await browser.saveScreenshot('.png')
-        return await compareImage.compareImages(screen1, screen2, 0.1)
-      }
+		let screen1 = await browser.saveScreenshot('.png')
+		await browser.pause(2000)
+		let screen2 = await browser.saveScreenshot('.png')
+		return await compareImage.compareImages(screen1, screen2, 0.1)
+	}
 }
 
 module.exports = new AMillionMorePage();

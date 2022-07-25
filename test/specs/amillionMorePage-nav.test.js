@@ -60,7 +60,7 @@ describe("A Million More Page - Side Menu Navigation Tests", () => {
 		await Page.verifyNavigationMenuList()
 	})
 
-	it('Verify navigation bar for main menu and sub menu list of items count', async () => {
+	xit('Verify navigation bar for main menu and sub menu list of items count- Repeated test', async () => {
 		// Step -1 Checking Navbar Main Menu list items count
 		const navMainMenuList = await Page.navMainMenuList
 		let navigationItems = await Page.getNavigationItems();
@@ -101,6 +101,4 @@ describe("A Million More Page - Side Menu Navigation Tests", () => {
 		await browser.pause(300)
 		expectchai(await Page.navList.isDisplayedInViewport()).to.be.false
 	})
-
-	
 })
